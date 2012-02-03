@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @race.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @race.location %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%= @race.team_id %>
+</p>
+<div id="events">
+	<% @events.each do |event|%>
+<div class="race_event">
+	<h6><%= event.name%></h6>
+	<h6><%= event.distance.to_s + event.units %></h6>
+	<%end%>
+</div>	
+<%= link_to 'Add new Event', new_event_path%>
+
+</div>
+	
+	
+
+
+
+<%= link_to 'Edit', edit_race_path(@race) %> |
+<%= link_to 'Back', races_path %>

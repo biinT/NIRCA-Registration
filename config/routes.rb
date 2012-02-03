@@ -1,4 +1,14 @@
 NIRCA::Application.routes.draw do
+  resources :runners
+
+  resources :teams
+
+  resources :event_entries
+
+  resources :events
+
+  resources :races
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

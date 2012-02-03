@@ -1,0 +1,25 @@
+<h1>Listing runners</h1>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runners.each do |runner| %>
+  <tr>
+    <td><%= runner.team_id %></td>
+    <td><%= runner.name %></td>
+    <td><%= link_to 'Show', runner %></td>
+    <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
+    <td><%= link_to 'Destroy', runner, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Runner', new_runner_path %>
