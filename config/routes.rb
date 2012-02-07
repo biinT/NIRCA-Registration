@@ -1,14 +1,17 @@
 NIRCA::Application.routes.draw do
+  root :to => 'races#index'
+  
+  devise_for :users
+
   resources :runners
 
   resources :teams
 
   resources :event_entries
-
-  resources :events
-
-  resources :races
-
+  
+  resources :races do
+    resources :events
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

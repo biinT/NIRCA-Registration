@@ -15,14 +15,12 @@
   <%= @race.team_id %>
 </p>
 <div id="events">
-	<% @events.each do |event|%>
-<div class="race_event">
-	<h6><%= event.name%></h6>
-	<h6><%= event.distance.to_s + event.units %></h6>
-	<%end%>
-</div>	
-<%= link_to 'Add new Event', new_event_path%>
+	<h3>Events!</h3>
+	<% @race.events.each do |event|%>
+	<%= event.name%><br/>
+	<% end %>	
 
+	<%= link_to "Add Event", new_race_event_path(@race, @event) %>
 </div>
 	
 	

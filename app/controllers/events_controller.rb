@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
   # GET /events
   # GET /events.json
   def index
@@ -25,7 +27,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
-    params[:race_id]
+    @race = Race.find(params[:race_id])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @event }
@@ -40,12 +42,13 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    @race = Race.find(params[:race_id])
+    @event = @race.events.build(params[:event])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, :notice => 'Event was successfully created.' }
-        format.json { render :json => @event, :status => :created, :location => @event }
+        format.html { redirect_to @race, :notice => 'Event was successfully created.' }
+        format.json { render :json => @race, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }
         format.json { render :json => @event.errors, :status => :unprocessable_entity }
