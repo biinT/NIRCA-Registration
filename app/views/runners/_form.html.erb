@@ -1,4 +1,4 @@
-<%= form_for(@runner) do |f| %>
+<%= form_for([@team, @runner]) do |f| %>
   <% if @runner.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :team_id %><br />
-    <%= f.text_field :team_id %>
+    <%= f.label :team_name %><br />
+    <%= f.text_field :team_name, :value => "#{@team.school_name}" %>
   </div>
   <div class="field">
     <%= f.label :name %><br />

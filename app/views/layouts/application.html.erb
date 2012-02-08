@@ -9,13 +9,19 @@
 <body>
 <div id="user_nav">
 	<% if user_signed_in? %>
-	Signed in as <%= current_user.email%>. Not you?
+	Signed in as <%= current_user.email%>.
+	 <% if current_user.team_id != nil %>
+	Your team is <%=current_user.team_id%>.
+	<% else %>
+	You are not part of a team. <%= link_to "Join one now!", teams_path %>
+	<% end %> Not you?
 	<%= link_to "Sign Out", destroy_user_session_path%>
 	<% else %>
 	<%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
 	  <% end %>
 	
 </div>
+
 <%= yield %>
 
 </body>

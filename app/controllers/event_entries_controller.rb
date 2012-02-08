@@ -25,7 +25,9 @@ class EventEntriesController < ApplicationController
   # GET /event_entries/new.json
   def new
     @event_entry = EventEntry.new
-
+    @event = Event.find(params[:event_id])
+    @team = Team.find_by_school_name(current_user.team_id)
+    @runners = @team.runners
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @event_entry }

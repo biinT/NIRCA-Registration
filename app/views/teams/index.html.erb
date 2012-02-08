@@ -11,6 +11,7 @@
 <% @teams.each do |team| %>
   <tr>
     <td><%= team.school_name %></td>
+<td><%= link_to "Join this team", :action => "join", :id => team, :team_id => team.school_name %>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>

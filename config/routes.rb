@@ -3,15 +3,18 @@ NIRCA::Application.routes.draw do
   
   devise_for :users
 
-  resources :runners
-
-  resources :teams
+  resources :teams do
+    resources :runners
+  end
 
   resources :event_entries
   
   resources :races do
     resources :events
   end
+  
+  match 'teams/join/:id' => 'teams#join', :as => :jointeam
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -14,7 +14,8 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @team = Team.find(params[:id])
-
+    @runners = @team.runners
+    @count = @runners.length
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @team }
@@ -78,6 +79,20 @@ class TeamsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to teams_url }
       format.json { head :ok }
+    end
+  end
+  
+  
+  def join
+    current_user.team_id = params[:team_id]
+    if current_user.save
+      logger.debug "Team set to #{current_user.team_id} for user #{current_user.email}"
+      @team = Team.find_by_school_name(params[:team_id])
+      runner = @team.runners.build({:first_name => current_user.first_name, :last_name => current_user.last_name, :team_name => @team.school_name, :team_id => @team.id, :user_id => current_user.id})
+      runner.save
+      redirect_to teams_url
+    else
+      logger.debug "Team Joining Error."
     end
   end
 end
