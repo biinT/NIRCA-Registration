@@ -42,12 +42,13 @@ class EventEntriesController < ApplicationController
   # POST /event_entries
   # POST /event_entries.json
   def create
-    @event_entry = EventEntry.new(params[:event_entry])
+    @event = Event.find(params[:event_id])
+    @event_entry = @event.event_entries.build(params[:event_entry])
 
     respond_to do |format|
       if @event_entry.save
-        format.html { redirect_to @event_entry, :notice => 'Event entry was successfully created.' }
-        format.json { render :json => @event_entry, :status => :created, :location => @event_entry }
+        format.html { redirect_to @event, :notice => 'Event entry was successfully created.' }
+        format.json { render :json => @event, :status => :created, :location => @event_entry }
       else
         format.html { render :action => "new" }
         format.json { render :json => @event_entry.errors, :status => :unprocessable_entity }

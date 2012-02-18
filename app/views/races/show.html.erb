@@ -17,13 +17,14 @@
 <div id="events">
 	<h3>Events!</h3>
 	<table>
+		<% if @race.events.count > 0 %>
 	<% @race.events.each do |event|%>
 	<tr>
 	<td><%= event.name%></td>
 	<td><%= event.distance.to_s + event.units%></td>
 	<td><%= link_to "Enter For this Event", :controller => "event_entries", :action => "new", :event_id => event.id %></td></tr>
 	<% end %>	
-
+<% end %>
 	<%= link_to "Add Event", new_race_event_path(@race, @event) %>
 </div>
 	

@@ -88,9 +88,12 @@ class TeamsController < ApplicationController
     if current_user.save
       logger.debug "Team set to #{current_user.team_id} for user #{current_user.email}"
       @team = Team.find_by_school_name(params[:team_id])
-      runner = @team.runners.build({:first_name => current_user.first_name, :last_name => current_user.last_name, :team_name => @team.school_name, :team_id => @team.id, :user_id => current_user.id})
-      runner.save
-      redirect_to teams_url
+      @runner = @team.runners.build({:first_name => current_user.first_name, :last_name => current_user.last_name, :team_name => @team.school_name, :team_id => @team.id, :user_id => current_user.id})
+      if @runner.save
+        redirect_to teams_url
+      else
+        redirect_to teams_url, :error => "Runner not built!"
+      end
     else
       logger.debug "Team Joining Error."
     end
