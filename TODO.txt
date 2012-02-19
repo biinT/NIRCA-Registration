@@ -2,3 +2,4 @@
 -make teams persist and be able to view roster
 -allow roster view to register team members.
 -event entry create
+-event delete
