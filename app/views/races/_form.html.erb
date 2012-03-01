@@ -20,7 +20,7 @@
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%f.hidden_field :team_id, :value => current_user.team_id%>
+    <%f.hidden_field :team_id, :value => session[:team]%>
   </div>
   <div class="actions">
     <%= f.submit %>
