@@ -44,7 +44,7 @@ class RacesController < ApplicationController
   # POST /races.json
   def create
     @race = Race.new(params[:race])
-    @race.team_id = params[:team_id]
+    @race.team_id = session[:team]
     respond_to do |format|
       if @race.save
         format.html { redirect_to @race, :notice => 'Race was successfully created.' }
