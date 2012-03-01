@@ -8,7 +8,11 @@
 	<%= race.location %><br />
 	<%= race.team_id%>
 	<span class="edition">
-		<%= link_to 'Show', race %> | <%= link_to 'Edit', edit_race_path(race) %> | <%= link_to 'Destroy', race, :confirm => 'Are you sure?', :method => :delete %>
+		<%= link_to 'View Details', race %> 
+		<% if race.team_id == session[:team]%>
+		
+		| <%= link_to 'Edit', edit_race_path(race) %> | <%= link_to 'Destroy', race, :confirm => 'Are you sure?', :method => :delete %>
+		<%end%>
 </div>
 
 

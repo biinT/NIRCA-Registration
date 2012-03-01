@@ -25,7 +25,9 @@
 	<td><%= link_to "Enter For this Event", :controller => "event_entries", :action => "new", :event_id => event.id %></td></tr>
 	<% end %>	
 <% end %>
+<% if @race.team_id == session[:team] %>
 	<%= link_to "Add Event", new_race_event_path(@race, @event) %>
+	<%end%>
 </div>
 	
 	

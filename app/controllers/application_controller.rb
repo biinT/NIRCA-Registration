@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
     if current_user.present?
       if session[:team].nil?
         t = Team.find_by_school_name(current_user.team_id)
-        session[:team] = t.id
+        unless t.nil?
+          session[:team] = t.id
+        end
       end
     end
   end
