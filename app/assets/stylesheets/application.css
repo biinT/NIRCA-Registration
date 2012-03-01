@@ -5,3 +5,960 @@
  *= require_self
  *= require_tree . 
 */
+
+@charset "UTF-8";
+* {
+  border: none;
+}
+input {
+	border:1px solid #000;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	background-color: #eef1f4;
+	color: #777;
+}
+.fname {
+	width: 15%;
+}
+.lname {
+	width: 15%;
+}
+.gender {
+	width: 2%;
+}
+.tshirt {
+	width: 2%;
+}
+.birth {
+	width: 15%;
+}
+.econtact {
+	width: 20%;
+}
+.enumber {
+	width: 15%;
+}
+.uni {
+	width: 35%;
+	font-size: 1.5em;
+}
+.contact {
+	width: 30%;
+	font-size: 1.5em;
+	background-color: #eef1f4;
+}
+.email{
+	width: 32%;
+	font-size: 1.5em;
+	background-color: #eef1f4;
+}
+.runner_emphasis {
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	font-size: 2em;
+}
+#formexplain li {
+		text-align:left;
+		display:inline;
+		list-style-type:none;
+		border-right:1px solid #666;
+		float:left;
+}
+#formexplain {
+	margin:0px;
+	font-family:Helvetica, sans-serif;
+	padding-left:120px;
+	overflow:hidden;
+}
+.submit {
+	font-size:1em;
+	padding:5px;
+	border-radius:5px;
+	color:#fff;
+	background-color:#044b92;
+}
+.submithover {
+	font-size:1em;
+	padding:5px;
+	border-radius:5px;
+	color:#fff;
+	background-color:#3c3c3c;
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+textarea:focus, input:focus {
+	border: 1px solid #4f9ce9;
+	background-color: #FFF;
+	color: #000;
+    -webkit-transition:all 100ms ease-in-out;
+    -o-transition:all 100ms ease-in-out;
+    -moz-transition:all 100ms ease-in-out;
+    transition:all 100ms ease-in-out;
+        
+}
+label {
+	margin-right: 5px;
+}
+li {
+	list-style: none;
+}
+dl {
+  position: relative;
+  width: 700px;
+  }
+dt {
+  clear: both;
+  float:left;
+  width: 260px;
+  padding: 4px 0 2px 0;
+  text-align: left;
+}
+dd {
+  float: left;
+  width: 430px;
+  margin: 0 0 8px 0;
+  padding-left: 6px;
+}
+.hint {
+   	display: none;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: -60px;
+    border: 1px solid #93ac2a;
+    padding: 10px 10px;
+    /* to fix IE6, I can't just declare a background-color,
+    I must do a bg image, too!  So I'm duplicating the pointer.gif
+    image, and positioning it so that it doesn't show up
+    within the box */
+    background: #bad742 url(http://new.clubrunning.org/forms/pointer.png) no-repeat -100px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    background: url(http://new.clubrunning.org/forms/pointer.png) left top no-repeat;
+}
+
+
+/* CSS Document */
+/* BODY LEVEL */
+body {
+	background: url(http://new.clubrunning.org/images/grass.png) center fixed #375125 repeat-y;
+	margin:0 auto;
+}
+@font-face {
+  font-family:Rockwell;
+  src: url(http://new.clubrunning.org/images/Rockwell.ttf);
+}
+
+/* UNIVERSAL DIVS */
+.hidden {
+	display: none;
+}
+#nirca {
+	margin:0 auto;
+	width:740px;
+	text-align:center;
+	-webkit-box-shadow:0 60px 20px #111;
+	-moz-box-shadow:0 60px 20px #111;
+	box-shadow:0 60px 20px #111;
+}
+#header {
+	background: url(http://new.clubrunning.org/images/header.png) no-repeat scroll 0 0;
+	padding:100px 0px 0px;
+	overflow: auto;
+}
+#subnavigation {
+ 	background:#3C3C3C none repeat 0 0;
+ 	color: #FFF;
+}
+#content {
+	background: url(http://new.clubrunning.org/images/content.png) repeat-y scroll 0 0;
+	text-align:left;
+	padding:0px;
+}
+#footer {
+	background: url(../images/footer.png) no-repeat scroll 0 0;
+	overflow:auto;
+	height: 52px;
+	padding-left: 45px;
+}
+#stuff {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:0.8em;
+	margin:0px auto;
+	padding:10px 10px 10px 100px;
+	overflow: hidden;
+}
+#login{
+	float: right;
+	width: 250px;
+	border-width: 43px 52px 27px 54px;
+	-moz-border-image: url(http://new.clubrunning.org/registration/images/border.png) 43 52 27 54;
+	-webkit-border-image: url(http://new.clubrunning.org/registration/images/border.png) 43 52 27 54;
+	-o-border-image: url(http://new.clubrunning.org/registration/images/border.png) 43 52 27 54;
+	border-image: url(http://new.clubrunning.org/registration/images/border.png) 43 52 27 54;
+	background-color: rgba(255, 255, 255, .5);
+}
+input {
+	background: #eee;
+	width: 100px;
+}
+
+/* RACES & EVENTS */
+table {
+	width: 100%;
+}
+.members_table
+{
+    width: 720px;
+    table-layout: fixed;
+}
+
+.sanctioned {
+	background: url(http://new.clubrunning.org/races/images/sanctioned.png) no-repeat center;
+}
+.champseries {
+	background: url(http://new.clubrunning.org/races/images/championships.png) no-repeat center;
+}
+/* SUB-SUB-NAVIGATION */
+#choice {
+	margin:0px;
+	background:url(http://new.clubrunning.org/images/choice.png) no-repeat;	
+	font-family:Helvetica, sans-serif;
+	overflow:hidden;
+}
+#choice a:hover,
+#choice a:focus {
+	color:#fff !important;
+	background:url(http://new.clubrunning.org/images/linen_back.png);
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+area:hover,
+area:focus{
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+#choice a:link,
+#choice a:visited {
+	color:#666;
+	text-decoration:none;
+	padding:17px 5px;
+	display: inline-block;
+}
+#choice li {
+	text-align:center;
+	display:inline;
+	list-style-type:none;
+	border-right:1px dotted #666;
+	margin-left: -4px;
+	padding: 17px 0;
+/*	float:left;*/
+}
+#choice li:first-child {
+	border-left:1px dotted #666;
+}
+/* SUB-NAVIGATION */
+#subnav {
+	margin:0px;
+	font-family:Helvetica, sans-serif;
+	overflow:hidden;
+}
+#subnav a:hover,
+#subnav a:focus {
+	color:#fff !important;
+	background:#222;
+}
+#subnav a:link,
+#subnav a:visited {
+	color: #ddd;
+	text-decoration:none;
+	padding:6px 8px 4px;
+	display:block;
+	text-shadow:1px 1px 1px #000;
+	font-size: 1em;
+}
+#subnav li {
+	text-align:center;
+	display:inline;
+	list-style-type:none;
+	border-right:1px solid #666;
+	float:left;
+}
+#subnav li:first-child {
+	border-left:1px solid #666;
+}
+/* NAVIGATION */
+#nav {
+	margin:0px;
+	font-family:Helvetica, sans-serif;
+	padding-left:120px;
+	overflow:hidden;
+}
+#nav a:hover,
+#nav a:focus {
+	color:#FFF !important;
+	background:#789bbe;
+}
+a.join:link,
+a.join:visited {
+	color:#eee;
+	background-color:#044b92 !important;
+}
+a.join:hover,
+a.join:focus {
+	color:#eee !important;
+	background:#222;
+}
+#nav a:link,
+#nav a:visited {
+	color:#789bbe;
+	text-decoration:none;
+	padding:5px 10px 5px;
+	display:block;
+	font-size: 1em;
+}
+#nav li {
+	text-align:center;
+	display:inline;
+	list-style-type:none;
+	float:left;
+}
+#nav li.house a:link,
+#nav li.house a:visited {
+	padding-bottom:3px;
+}
+#nav.primary {
+	padding:0px 0px 0px 115px;
+}
+#nav.primary a:link,
+#nav.primary a:visited {
+	padding-left:10px;
+	padding-right: 10px;
+	font-weight:bold;
+	font-size:1.5em;
+	text-transform:uppercase;
+	background-color: transparent;
+/*	display:block;*/
+}
+#nav.primary a:hover,
+#nav.primary a:focus {
+	color:#000 !important;
+	background:#eee;
+}
+#nav.foot a:link,
+#nav.foot a:visited {
+	font-size:0.8em;
+}
+/*Links and Text*/
+a.back-to-top {
+/*	position: absolute;*/
+	text-align: right;
+	top: 14px;
+	padding-right: 10px;
+	color: #044b92;
+	background: url(http://new.clubrunning.org/images/up.gif) no-repeat 100% 50%;
+	z-index: 1000;
+	}
+h1 {
+	color:#cb0003;
+	font-size:5em;
+	margin:0px;
+}
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	color:#044b92;
+	font-size:3em;
+	margin:0px;
+}
+h3 {
+	font-size: 2.5em;
+	color:rgba(40,40,40,1)
+}
+p {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.1 {
+	color:#cb0003;
+	font-size:5em;
+	margin:0px;
+}
+.2 {
+	color:#044b92;
+	font-size:3em;
+	margin:0px;
+}
+.3 {
+	font-size: 2.5em;
+	color:rgba(40,40,40,1)
+}
+.emphasis {
+	color: #fff;
+}
+.transparent_emphasis {
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	font-size: 4em;
+}
+.overlap_emphasis {
+	margin-left: -40px;
+}
+.benefits {
+	margin-left: 30px;
+	margin-top: -40px;
+}
+.benefits_inline {
+	margin-left: 30px;
+}
+.nircatype {
+	font-family: Rockwell;
+	color: #cb0003;
+	font-style: italic;
+	text-shadow:0.5px 0.5px 0.5px #000;
+	font-size: 1.25em;
+}
+.style1 {
+	color: #CB0003;
+	font-size:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+.style2 {color: #0055AD; 
+	font-size:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold}
+.style3 {
+	color: #000000;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+.style4 {
+	color: #CB0003;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+.style5 {color: #cb0003; 
+	font-size:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold
+}
+a:link,
+a:visited {
+	color:#044b92;
+	text-decoration:none;
+	font-weight: bold;
+	padding: 2px;
+}
+a:hover,
+a:focus,
+a:active {
+	background-color:#044b92;
+	padding: 2px;
+	color:#fff;
+	text-decoration:none;
+	font-weight: bold;
+	outline: none;
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+	-moz-border-radius:2px; 
+	-webkit-border-radius:2px;
+	border-radius: 2px;
+	-o-border-radius: 2px;
+	-khtml-border-radius: 2px;
+}
+a.imagelink:hover {
+	background-color: transparent; 
+}
+.required {
+	color: #cb0003;
+	font-weight: bold;
+}
+.help {
+	color: rgba(150,150,150,1);
+}
+li.forms {
+	text-align:center;
+	display:inline;
+	list-style-type:none;
+	float:left;
+}
+.form_text {
+	font-size: 1.2em;
+}
+.hidden {
+	display:none;
+}
+.red.button {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #cb0003), color-stop(0.81, #e9433d));
+	background: -moz-linear-gradient(center bottom, #cb0003 22%, #e9433d 81%);
+}
+.blue.button {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #044b92), color-stop(0.81, #278ec4));
+	background: -moz-linear-gradient(center bottom, #044b92 22%, #278ec4 81%);
+}
+.green.button {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #93AC2A), color-stop(0.81, #BAD742));
+	background: -moz-linear-gradient(center bottom, #93AC2A 22%, #BAD742 81%);
+}
+.gray.button {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, gray), color-stop(0.81, gray));
+	background: -moz-linear-gradient(center bottom, gray 22%, gray 81%);
+}
+.medium.button {
+	padding: 10px 14px 12px 16px;
+	font-size: 16px;
+}
+.red.button:hover {
+	background: #cb0003;
+}
+.blue.button:hover {
+	background: #044b92;
+	
+}
+.green.button:hover {
+	background: #93AC2A;
+}
+a.button {
+	display: inline-block;
+	font-family: "Helvetica Neue W01 75 Bold", Helvetica, Arial, Sans-serif;
+	color: white;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	text-decoration: none;
+	white-space: nowrap;
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+a.button:hover {
+	-webkit-transition:none;
+	-o-transition:none;
+	-moz-transition:none;
+	transition:none;
+}
+.button .apply {
+	background: url(http://new.clubrunning.org/images/circle_arrow.png) no-repeat 100% 65%;
+	padding-right: 18px;
+}
+.small.button {
+	padding: 7px 7px 8px 7px;
+	font-size: 14px;
+	font-weight: bold;
+}
+a {
+	margin: 0;
+	vertical-align: baseline;
+}
+/*NEWS---------------------------------*/
+.wrapper {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:0.8em;
+	margin:0px;
+}
+#recentnews {
+	padding: 0px;
+	background-color: #eee;
+	text-align: left;
+	color: #044b92;
+}
+#stuff ul li{
+	display: inline;
+}
+.news {
+	margin: 0px 5px;
+}
+#recentnews hr {
+	background: url(http://new.clubrunning.org/images/solid_bottomline.png);
+}
+#back {
+	float: left;
+	margin:0px;
+	font-family:Helvetica, sans-serif;
+}
+#back li {
+	border-left: 1px solid #ccc;
+}
+#back li: first-child {
+	border-left: 0px;
+}
+#back a:hover,
+#back a:focus {
+	color:#fff;
+}
+#back a:link,
+#back a:visited {
+	text-decoration:none;
+	padding:3px 10px 3px;
+}
+#back li {
+	text-align:center;
+	display:inline;
+	list-style-type:none;
+	float:left;
+}
+#reg {
+	margin: 0 auto;
+	text-align: center;
+	font-family:Helvetica, sans-serif;
+	overflow:hidden;
+	background-color:#044b92;
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+#reg li {
+	margin: 0 auto;
+	text-align: center;
+	float: left;
+	text-align:center;
+	list-style-type:none;
+}
+#reg a:hover,
+#reg a:focus {
+	margin: 0 auto;
+	text-align: center;
+	font-family:Helvetica, sans-serif;
+	color:#fff;
+	background-color:#222;
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+#reg a:link,
+#reg a:visited {
+	padding: 3px 10px;
+	margin: 0 auto;
+	text-align: center;
+	font-family:Helvetica, sans-serif;
+	font-size:1.5em;
+	color:#fff;
+	text-decoration:none;
+	display:block;
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+/*PopUps------------------------------------------------*/
+#fade { /*--Transparent background layer--*/
+	display: none; /*--hidden by default--*/
+	background: #000;
+	position: fixed; left: 0; top: 0;
+	width: 100%; height: 100%;
+	opacity: .80;
+	z-index: 9998;
+}
+.popup_block{
+	display: none; /*--hidden by default--*/
+	background: #fff;
+	padding: 20px;
+	border: 20px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99997;
+	/*--CSS3 Box Shadows--*/
+	-webkit-box-shadow: 0px 0px 20px #000;
+	-moz-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+	/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	max-height: 600px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+
+a.close {
+	float: right;
+	margin: -55px -55px 0 0;
+	height: 18px;
+	width:29px;
+	padding-top:12px;
+	background:url(http://new.clubrunning.org/images/close.png) 0 0 no-repeat;
+	overflow:hidden;
+}
+a.close:hover {
+	background-color: transparent !important;
+	background-position: 0 -30px;
+	-webkit-transition:none;
+	-o-transition:none;
+	-moz-transition:none;
+	transition:none;
+}
+.close_image:hover {
+	padding: -30px;
+}
+/*--Making IE6 Understand Fixed Positioning--*/
+*html #fade {
+	position: absolute;
+}
+*html .popup_block {
+	position: absolute;
+}
+/* SLIMBOX---------------------------------------------------------*/
+
+#lbOverlay {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	cursor: pointer;
+}
+
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	z-index: 9999;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.lbLoading {
+	background: #fff url(loading.gif) no-repeat center;
+}
+
+#lbImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 10px solid #fff;
+	background-repeat: no-repeat;
+}
+
+#lbPrevLink, #lbNextLink {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+}
+
+#lbPrevLink {
+	left: 0;
+}
+
+#lbPrevLink:hover {
+	background: transparent url(prevlabel.gif) no-repeat 0 15%;
+}
+
+#lbNextLink {
+	right: 0;
+}
+
+#lbNextLink:hover {
+	background: transparent url(nextlabel.gif) no-repeat 100% 15%;
+}
+
+#lbBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	border: 10px solid #fff;
+	border-top-style: none;
+}
+
+#lbCloseLink {
+	display: block;
+	float: right;
+	width: 66px;
+	height: 22px;
+	background: transparent url(closelabel.gif) no-repeat center;
+	margin: 5px 0;
+	outline: none;
+}
+
+#lbCaption, #lbNumber {
+	margin-right: 71px;
+}
+
+#lbCaption {
+	font-weight: bold;
+}
+/* Announcement Bar ------------------------------------------*/
+#announce {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #cb0003), color-stop(0.81, #e9433d));
+	background: -moz-linear-gradient(center bottom, #cb0003 22%, #e9433d 81%);
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	font: bold 1em/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #FFF;
+	box-shadow: 0px 1px 5px #000;
+	-webkit-box-shadow: 0px 1px 5px #000;
+	-moz-box-shadow: 0px 1px 5px #000;
+}
+#announcegray {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #333), color-stop(0.81, #777));
+	background: -moz-linear-gradient(center bottom, #333 22%, #777 81%);
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	font: bold 1em/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #FFF;
+	box-shadow: 0px 1px 5px #000;
+	-webkit-box-shadow: 0px 1px 5px #000;
+	-moz-box-shadow: 0px 1px 5px #000;
+}
+#announceblue {
+	background: -webkit-gradient(linear,left bottom, left top, color-stop(0.22, #044b92), color-stop(0.81, #278ec4));
+	background: -moz-linear-gradient(center bottom, #044b92 22%, #278ec4 81%);
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	font: bold 1em/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #FFF;
+	box-shadow: 0px 1px 5px #000;
+	-webkit-box-shadow: 0px 1px 5px #000;
+	-moz-box-shadow: 0px 1px 5px #000;
+}
+a.announcement:link, a.announcement:visited {
+	color:#ddd;
+}
+a.announcement:hover, a.announcement:focus, a.announcement:active {
+	background-color: transparent !important;
+	color:#fff !important;
+	text-decoration:none;
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+/*--ERROR REPORT-----------------------*/
+.static{
+	background:url(http://new.clubrunning.org/images/static40.gif) repeat;
+	filter: alpha(opacity=80) !important;
+	opacity: 0.8 !important;
+/*	width:100%;
+	height:100%;
+	position: absolute;
+	top: 0;
+	left: 0;*/
+}
+.loadingmessage{
+	display: none; /*--hidden by default--*/
+	background: #fff;
+	padding: 20px;
+	border: 20px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99997;
+	/*--CSS3 Box Shadows--*/
+	-webkit-box-shadow: 0px 0px 20px #000;
+	-moz-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+	/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	max-height: 600px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+.alert{
+	padding:10px;
+	color:#FFF;
+	border: 5px solid #fe8385;
+	background-color: #cb0003;
+	text-align: center;
+	/*--CSS3 Box Shadows--*/
+	-webkit-box-shadow: 0px 0px 5px #000;
+	-moz-box-shadow: 0px 0px 5px #000;
+	box-shadow: 0px 0px 5px #000;
+	/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-o-border-radius: 2px;
+	-khtml-border-radius: 2px;	
+}
+a.alerted:link, a.alerted:visited {
+	color: #ccc;
+}
+a.alerted:hover, a.alerted:focus{
+	background-color: transparent; 
+	color: #fff;	
+}
+.submit_sideout {
+ margin-bottom: 10px;
+ width: 240px;
+ height:87px;
+ display:block;
+ background:transparent url(http://new.clubrunning.org/media/images/submit_sideout.png) center top no-repeat;
+ float:right;
+ position: relative;
+ text-align: right;
+ margin-right: -10px;
+ margin-top: 0px;
+}
+
+.submit_sideout:hover, .submit_sideout:focus {
+   background-image: url(http://new.clubrunning.org/media/images/submit_sideouthover.png);
+}
+.submit_sideout:active {
+	background-image: url(http://new.clubrunning.org/media/images/submit_sideoutpush.png);
+}
+/*MATRIX----------------------------------------*/
+#matrix {
+	margin: 0 -2px;
+	border: 1px solid #D7D7D7;
+	width: 700px;
+	border-radius: 5px;
+}
+#matrix tr.topper{
+	height: 60px;
+}
+#matrix tr.nontopper{
+	height: 40px;
+}
+#matrix th, #matrix td {
+	border-bottom: 1px solid #E6E6E6;
+	background: url(http://new.clubrunning.org/images/gradient_column.png) repeat-y;
+	padding: 5px;
+	border-left: 1px solid #E6E6E6;
+}
+#matrix th.left, #matrix td.left {
+	background: none !important;
+	border: none;
+	padding-left: 5px;
+}
+#matrix th.divider, #matrix td.divider {
+	border-bottom: 1px solid #E6E6E6;
+}
+#matrix th.bottomer, #matrix td.bottomer {
+	border-bottom: none;
+}

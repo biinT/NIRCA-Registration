@@ -1,0 +1,139 @@
+@charset "UTF-8";
+* {
+  border: none;
+}
+input {
+	border:1px solid #000;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	background-color: #eef1f4;
+	color: #777;
+}
+.fname {
+	width: 15%;
+}
+.lname {
+	width: 15%;
+}
+.gender {
+	width: 2%;
+}
+.tshirt {
+	width: 2%;
+}
+.birth {
+	width: 15%;
+}
+.econtact {
+	width: 20%;
+}
+.enumber {
+	width: 15%;
+}
+.uni {
+	width: 35%;
+	font-size: 1.5em;
+}
+.contact {
+	width: 30%;
+	font-size: 1.5em;
+	background-color: #eef1f4;
+}
+.email{
+	width: 32%;
+	font-size: 1.5em;
+	background-color: #eef1f4;
+}
+.runner_emphasis {
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	font-size: 2em;
+}
+#formexplain li {
+		text-align:left;
+		display:inline;
+		list-style-type:none;
+		border-right:1px solid #666;
+		float:left;
+}
+#formexplain {
+	margin:0px;
+	font-family:Helvetica, sans-serif;
+	padding-left:120px;
+	overflow:hidden;
+}
+.submit {
+	font-size:1em;
+	padding:5px;
+	border-radius:5px;
+	color:#fff;
+	background-color:#044b92;
+}
+.submithover {
+	font-size:1em;
+	padding:5px;
+	border-radius:5px;
+	color:#fff;
+	background-color:#3c3c3c;
+	-webkit-transition:all 300ms ease-in-out;
+	-o-transition:all 300ms ease-in-out;
+	-moz-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+textarea:focus, input:focus {
+	border: 1px solid #4f9ce9;
+	background-color: #FFF;
+	color: #000;
+    -webkit-transition:all 100ms ease-in-out;
+    -o-transition:all 100ms ease-in-out;
+    -moz-transition:all 100ms ease-in-out;
+    transition:all 100ms ease-in-out;
+        
+}
+label {
+	margin-right: 5px;
+}
+li {
+	list-style: none;
+}
+dl {
+  position: relative;
+  width: 700px;
+  }
+dt {
+  clear: both;
+  float:left;
+  width: 260px;
+  padding: 4px 0 2px 0;
+  text-align: left;
+}
+dd {
+  float: left;
+  width: 430px;
+  margin: 0 0 8px 0;
+  padding-left: 6px;
+}
+.hint {
+   	display: none;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: -60px;
+    border: 1px solid #93ac2a;
+    padding: 10px 10px;
+    /* to fix IE6, I can't just declare a background-color,
+    I must do a bg image, too!  So I'm duplicating the pointer.gif
+    image, and positioning it so that it doesn't show up
+    within the box */
+    background: #bad742 url(http://new.clubrunning.org/forms/pointer.png) no-repeat -100px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    background: url(http://new.clubrunning.org/forms/pointer.png) left top no-repeat;
+}
