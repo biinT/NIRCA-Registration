@@ -6,7 +6,7 @@
 <div class="race_info">
 	<h3><%= race.name%><h3>
 	<%= race.location %><br />
-	<%= race.team_id%>
+	<%= @team_names[race.team_id]%>
 	<span class="edition">
 		<%= link_to 'View Details', race %> 
 		<% if race.team_id == session[:team]%>

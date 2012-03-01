@@ -5,6 +5,10 @@ class RacesController < ApplicationController
   
   def index
     @races = Race.all
+    @teams = Team.all
+    @team_names = {}
+    @teams.each do |team|
+      @team_names[team.id] = team.school_name
 
     respond_to do |format|
       format.html # index.html.erb
