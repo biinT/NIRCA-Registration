@@ -9,6 +9,7 @@ class RacesController < ApplicationController
     @team_names = {}
     @teams.each do |team|
       @team_names[team.id] = team.school_name
+    end
 
     respond_to do |format|
       format.html # index.html.erb
