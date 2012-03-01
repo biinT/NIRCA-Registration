@@ -29,7 +29,7 @@ class EventEntriesController < ApplicationController
   def new
     @event_entry = EventEntry.new
     @event = Event.find(params[:event_id])
-    @team = Team.find_by_school_name(current_user.team_id)
+    @team = Team.find(session[:team])
     @runners = @team.runners
     respond_to do |format|
       format.html # new.html.erb

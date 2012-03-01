@@ -49,7 +49,7 @@ class RunnersController < ApplicationController
   def create
     @team = Team.find(params[:team_id])
     @runner = @team.runners.build(params[:runner])
-    @runner.team_id = @team.id
+    @runner.team_id = session[:team]
 
     respond_to do |format|
       if @runner.save
