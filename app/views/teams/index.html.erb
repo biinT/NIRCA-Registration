@@ -1,5 +1,7 @@
-<h1>Listing teams</h1>
+<h1>Here are all NIRCA Teams</h1>
 <%= flash[:error]%>
+
+<h3>If you do not see your team listed, create it by creating the link at the bottom of the page.</h3>
 <table>
   <tr>
     <th>School name</th>
@@ -12,9 +14,10 @@
   <tr>
     <td><%= team.school_name %></td>
 <td><%= link_to "Join this team", :action => "join", :id => team, :team_id => team.school_name %>
+	<%if team.id = session[:team]%>
     <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+    
+<% end %>
   </tr>
 <% end %>
 </table>

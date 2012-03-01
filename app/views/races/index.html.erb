@@ -4,9 +4,10 @@
 
 <% @races.each do |race| %>
 <div class="race_info">
-	<h3><%= race.name%><h3>
+	<h3><%= race.name%><br />
 	<%= race.location %><br />
 	<%= @team_names[race.team_id]%>
+	</h3>
 	<span class="edition">
 		<%= link_to 'View Details', race %> 
 		<% if race.team_id == session[:team]%>
