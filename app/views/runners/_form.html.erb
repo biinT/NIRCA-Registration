@@ -13,11 +13,15 @@
 
   <div class="field">
     <%= f.label :team_name %><br />
-    <%= f.text_field :team_name, :value => "#{@team.school_name}" %>
+    <b><%= @team.school_name%></b>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+<div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
   </div>
   <div class="actions">
     <%= f.submit %>

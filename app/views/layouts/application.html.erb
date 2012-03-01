@@ -11,7 +11,7 @@
 	<% if user_signed_in? %>
 	Signed in as <%= current_user.email%>.
 	 <% if current_user.team_id != nil %>
-	Your team is <%=current_user.team_id%>.
+	Your team is <%= link_to "#{current_user.team_id}", team_path(session[:team])  %>.
 	<% else %>
 	You are not part of a team. <%= link_to "Join one now!", teams_path %>
 	<% end %> Not you?

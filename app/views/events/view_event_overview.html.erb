@@ -1,0 +1,15 @@
+<h1>Entries for Event: <%= @event.name%></h1>
+
+
+<% @event.event_entries.each do |entry|%>
+<div class="event_entry">
+	<p>
+		<b>School Name:</b><%= entry.team_id%>
+	</p>
+	<p><b>Runners:</b><br />
+		<% entry.runners.each do |runner|%>
+		<%= runner%><br />
+		<% end %>
+	</p>
+</div>
+	<% end %>

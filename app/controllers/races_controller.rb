@@ -1,6 +1,8 @@
 class RacesController < ApplicationController
   # GET /races
   # GET /races.json
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   def index
     @races = Race.all
 
@@ -69,6 +71,9 @@ class RacesController < ApplicationController
       end
     end
   end
+  
+  
+  
 
   # DELETE /races/1
   # DELETE /races/1.json

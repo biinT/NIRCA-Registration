@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!
   
   # GET /events
   # GET /events.json
@@ -69,6 +69,25 @@ class EventsController < ApplicationController
         format.html { render :action => "edit" }
         format.json { render :json => @event.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def view_event_overview
+    @event = Event.find(params[:id])
+    
+  end
+  
+  
+  def new_event_entry
+    @event = Event.find(params[:event_id])
+    @entry = EventEntry.new
+    @entry.runners = params[:runners]
+    @entry.team_id = params[:team_id]
+    @event.event_entries << @entry
+    if @event.save
+      redirect_to @entry, :notice => "Entry successful!"
+    else
+      redirect_to races_url, :notice => "There was an error."
     end
   end
 

@@ -13,7 +13,13 @@ NIRCA::Application.routes.draw do
     resources :events
   end
   
+  match 'not_authorized' => 'races#index', :as => :login_redirect
+  
   match 'teams/join/:id' => 'teams#join', :as => :jointeam
+  
+  match 'events/new_event_entry' => 'events#new_event_entry', :as => :enter_event
+  
+  match 'events/overview/:id' => 'events#view_event_overview', :as => :event_overview
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

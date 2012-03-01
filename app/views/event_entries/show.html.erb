@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
   <b>Event:</b>
   <%= @event_entry.event_id %>
 </p>
 
 <p>
+	<b>School:</b>
+	<%= @event_entry.team_id%>
+	</p>
+<p>
   <b>Runners:</b>
-  <%= @event_entry.runners %>
+  <% @runners.each do |runner|	%>
+<%= runner %><br />
+	<% end %>
+
 </p>
 
 

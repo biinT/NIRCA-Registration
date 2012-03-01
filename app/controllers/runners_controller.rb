@@ -1,6 +1,11 @@
 class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.json
+  before_filter :authenticate_user!, :only => [:create]
+  
+  
+ 
+  
   def index
     @runners = Runner.all
 
@@ -36,6 +41,7 @@ class RunnersController < ApplicationController
   # GET /runners/1/edit
   def edit
     @runner = Runner.find(params[:id])
+    @team = Team.find(@runner.team_id)
   end
 
   # POST /runners

@@ -1,6 +1,8 @@
 class EventEntriesController < ApplicationController
   # GET /event_entries
   # GET /event_entries.json
+  before_filter :authenticate_user!
+  
   def index
     @event_entries = EventEntry.all
 
@@ -14,6 +16,7 @@ class EventEntriesController < ApplicationController
   # GET /event_entries/1.json
   def show
     @event_entry = EventEntry.find(params[:id])
+    @runners = @event_entry.runners
 
     respond_to do |format|
       format.html # show.html.erb

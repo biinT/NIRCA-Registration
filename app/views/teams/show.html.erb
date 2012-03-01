@@ -10,7 +10,7 @@
 	<table>
 	<% @runners.each do |runner|%>
 	<tr>
-	<td><%= runner.name%></td><td><%= link_to "Edit Runner Info", edit_team_runner_path(@team, runner) %> </td><td> <%= link_to "Delete", team_runner_path(@team, runner), :method => :delete, :confirm => "Are you sure you want to do that?" %></td></tr>
+	<td><%= runner.first_name + " " + runner.last_name%></td><td><%= link_to "Edit Runner Info", edit_team_runner_path(@team, runner) %> </td><td> <%= link_to "Delete", team_runner_path(@team, runner), :method => :delete, :confirm => "Are you sure you want to do that?" %></td></tr>
 	
 	<% end %>
 	</table>
