@@ -22,6 +22,11 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id])
     @events = @race.events
+    @teams = Team.all
+    @team_names = {}
+    @teams.each do |team|
+      @team_names[team.id] = team.school_name
+    end
 
     respond_to do |format|
       format.html # show.html.erb
